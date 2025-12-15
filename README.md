@@ -6,6 +6,26 @@
  - how everything connects (FE/BE/cache/DB/infra)
  - why the architecture is designed this way (security, scale, operational discipline)
  - pointers to step-by-step runbooks (see `docs/playbook/`)
+
+ ## Stack Snapshot (1-screen)
+ - **Host**: AlmaLinux (SELinux), firewalld, fail2ban
+ - **Gateway**: Traefik (TLS termination + routing)
+ - **Containers**: Podman (rootless), Alpine base images
+ - **Backend**: Go (Encore), Bun (preferred)
+ - **Data**: Postgres (primary), TimescaleDB (when time-series is real), TigerBeetle (ledger-grade invariants)
+ - **Migrations**: Encore SQL migrations (`migrations/*.up.sql`)
+ - **Cache/Streams/Queue**: Redis (cache + sessions + streams)
+ - **Vector**: Qdrant
+ - **Object storage**: MinIO/S3
+ - **Observability**: Prometheus, Grafana, Loki, Uptime Kuma, OpenTelemetry (when microservices grow)
+ - **Alerting**: Alertmanager
+ - **Error tracking**: Sentry
+ - **CI/Quality**: GitHub Actions, Husky, Commitlint, Vitest, k6, Trivy/Snyk, gitleaks, Renovate/Dependabot
+ - **IaC/Automation**: Ansible (VPS-first), Terraform (cloud provisioning)
+ - **Web**: SvelteKit (SSR)
+ - **Mobile/Desktop**: Flutter / FlutterFlow, Tauri
+ - **AI**: DeepSeek, Ollama, HuggingFace, LangChain
+ - **Web3**: Solidity, Rust, Move/Sui (optional)
  
  Notes:
  - I keep all showcase links and demos at the bottom of this README.
