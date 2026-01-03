@@ -9,10 +9,11 @@
 
  ## Stack Snapshot (1-screen)
  - **Host**: AlmaLinux (SELinux), firewalld, fail2ban
- - **Gateway**: Traefik (TLS termination + routing)
+ - **Runtime**: MISE, Bun
+ - **Gateway & Load Balancer**: Traefik (TLS termination + routing + LB), Nginx, Cloudflare
  - **Containers**: Podman (rootless), Alpine base images
- - **Backend**: Go (Encore), Bun (preferred)
- - **Data**: Postgres (primary), TimescaleDB (when time-series is real), TigerBeetle (ledger-grade invariants)
+ - **Backend**: Go (Encore), gRPC
+ - **Data**: Postgres (primary), TimescaleDB (when time-series is real), TigerBeetle (ledger-grade invariants), CockroachDB (optional – enterprise)
  - **Migrations**: Encore SQL migrations (`migrations/*.up.sql`)
  - **Cache/Streams/Queue**: Redis (cache + sessions + streams)
  - **Vector**: Qdrant
@@ -22,10 +23,11 @@
  - **Error tracking**: Sentry
  - **CI/Quality**: GitHub Actions, Husky, Commitlint, Vitest, k6, Trivy/Snyk, gitleaks, Renovate/Dependabot
  - **IaC/Automation**: Ansible (VPS-first), Terraform (cloud provisioning)
- - **Web**: SvelteKit (SSR)
+ - **Web Frontend**: Svelte 5, SvelteKit 2, Tailwind CSS, GSAP, Motion One, Three.js, Babylon.js (optional)
  - **Mobile/Desktop**: Flutter / FlutterFlow, Tauri
  - **AI**: DeepSeek, Ollama, HuggingFace, LangChain
  - **Web3**: Solidity, Rust, Move/Sui (optional)
+ - **Auth & Identity**: Lucia, OAuth2 / OpenID Connect, PocketBase Auth (optional – offline / edge)
  
  Notes:
  - I keep all showcase links and demos at the bottom of this README.
